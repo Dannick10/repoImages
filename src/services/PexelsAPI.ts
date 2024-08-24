@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function usePexelsAPI () {
     const key = process.env.NEXT_PUBLIC_API_KEY
-    const [query,SetQuery] = useState<string>('beach')
+    const [query,SetQuery] = useState<string>('anime')
     const [data,SetData] = useState<any>()
     
     const FetchData = async () => {
@@ -29,7 +29,7 @@ export default function usePexelsAPI () {
         data,
         FetchData,
         query,
-        SetQuery
+        SetQuery,
     }
   
 }
