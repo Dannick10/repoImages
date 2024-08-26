@@ -18,12 +18,13 @@ export default function Home() {
     page,
     SetPage,
     idData,
+    SetidData,
     FetchDataID,
     loading,
-    loadingID
+    loadingID,
   } = usePexelsAPI();
   const [modal, SetModal] = useState<boolean>(false);
-  const [idModal, SetidModal] = useState(null)
+  const [idModal, SetidModal] = useState(null);
 
   useEffect(() => {
     FetchData();
@@ -51,14 +52,17 @@ export default function Home() {
   };
 
   const handleGetId = (e) => {
-    const id = e.target.dataset["id"];
+    const id = e.currentTarget.dataset["id"];
     FetchDataID(id);
+    SetidModal(id);
     SetModal(true);
   };
 
-  const handleModal = (e) => {
-
-  }
+  const closemodal = () => {
+    SetModal(false);
+    SetidModal(null);
+    SetidData(undefined);
+  };
 
   console.log(data);
   return (
@@ -93,7 +97,12 @@ export default function Home() {
         </>
       )}
       {modal && (
-       <Modal idData={idData} closed={() => SetModal(false)} loadingID={loadingID}/>
+        <Modal
+          idData={idData}
+          closed={closemodal}
+          loadingID={loadingID}
+          idmodal={idModal}
+        />
       )}
     </main>
   );

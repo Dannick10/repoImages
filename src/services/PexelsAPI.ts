@@ -54,6 +54,7 @@ export default function usePexelsAPI () {
         page,
         SetPage,
         idData,
+        SetidData,
         FetchDataID,
         loading,
         loadingID

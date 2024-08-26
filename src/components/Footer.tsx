@@ -1,0 +1,31 @@
+import React from "react";
+import {motion} from 'framer-motion'
+import { DevIcon, GithubIcon, LinkedinIcon } from "@/icon/icon";
+
+const Footer = () => {
+  return (
+    <footer className="footer flex justify-between bg-neutral text-neutral-content items-center p-4">
+      <aside className="flex items-center gap-2items-center text-sm">
+            <DevIcon/>
+        <p className="text-xs">
+          Daniel Rocha Copyright © {new Date().getFullYear()} - All right
+          reserved
+        </p>
+      </aside>
+      <nav className="grid-flow-col">
+        <ul className="flex text-xl gap-2">
+          <li className="hover:brightness-125 cursor-pointer"
+      
+          >
+            <LinkedinIcon />
+          </li>
+          <li className="hover:brightness-125 cursor-pointer">
+            <GithubIcon />
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  );
+};
+
+export default Footer;

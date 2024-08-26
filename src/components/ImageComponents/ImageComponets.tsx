@@ -39,7 +39,7 @@ const ImageComponets = ({ data, loading, handleGetId }: Props) => {
           initial={{ opacity: 0, right: 20 }}
           transition={{ duration: 0.3, delay: 0.2 }}
           whileInView={{ opacity: 1, right: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true }}   
         >
           {loading ? (
             <Skeleton />
@@ -76,8 +76,10 @@ const ImageComponets = ({ data, loading, handleGetId }: Props) => {
                   <p>{photo.alt}</p>
                 </div>
                 <motion.div className="text-center flex justify-center text-4xl text-base-300 bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-transparent w-full absolute right-0 bottom-0 h-14 cursor-pointer"
+                layoutId={photo.id.toString()}
+                id={photo.id.toString()}
                 initial={{opacity: 0, y: -20}}
-                transition={{duration: .3}}
+                transition={{duration: .4}}
                 whileHover={{opacity: 1, y: 0}}
                 onClick={handleGetId}
                 data-id={photo.id}
