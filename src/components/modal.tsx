@@ -29,7 +29,6 @@ type modalProps = {
 };
 
 const Modal = ({ idData, closed, loadingID, idmodal }: modalProps) => {
-  console.log(idmodal)
 
   return (
     <AnimatePresence>

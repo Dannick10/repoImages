@@ -41,7 +41,6 @@ export default function Home() {
   };
 
   const NextandPreviusPage = (e: any) => {
-    console.log(e.target);
     scroll(0, 0);
     if (e.target.innerHTML.toLowerCase() == "voltar") {
       SetPage(Math.floor(page - 1));
@@ -63,7 +62,7 @@ export default function Home() {
     SetidData(undefined);
   };
 
-  console.log(data);
+
   return (
     <main
       className="min-h-screen w-full px-4 py-6 gap-2 flex flex-col"
