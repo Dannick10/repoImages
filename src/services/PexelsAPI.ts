@@ -10,6 +10,7 @@ export default function usePexelsAPI () {
     const [idData,SetidData] = useState()
     const [page,SetPage] = useState<number>(1)
     const [loading,Setloading] = useState<boolean>(false)
+    const [loadingID, SetloadingID] = useState<boolean>(false)
     
     const FetchData = async () => {
         Setloading(true)
@@ -30,7 +31,7 @@ export default function usePexelsAPI () {
 
     const FetchDataID = async (id: string) => {
         const link = `https://api.pexels.com/v1/photos/${id}`
-
+        SetloadingID(true)
         try{
             const response = await axios(link, {
                 headers: {
@@ -42,7 +43,7 @@ export default function usePexelsAPI () {
         } catch (error: any){
             console.log('error na api: ' + error)
         }
-
+        SetloadingID(false)
     }
 
     return {
@@ -54,7 +55,8 @@ export default function usePexelsAPI () {
         SetPage,
         idData,
         FetchDataID,
-        loading
+        loading,
+        loadingID
     }
   
 }
