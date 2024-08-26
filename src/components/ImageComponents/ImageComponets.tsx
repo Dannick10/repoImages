@@ -35,7 +35,7 @@ const ImageComponets = ({ data, loading, handleGetId }: Props) => {
       {data.map((photo) => (
         <motion.div
           key={photo.id}
-          className={`card card-compact justify-center items-center bg-base-100 shadow-xl m-2 min-h-72`}
+          className={`card card-compact justify-center items-center bg-base-100 shadow-xl m-2 min-h-72 max-h-80`}
           initial={{ opacity: 0, right: 20 }}
           transition={{ duration: 0.3, delay: 0.2 }}
           whileInView={{ opacity: 1, right: 0 }}

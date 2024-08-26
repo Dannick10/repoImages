@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function usePexelsAPI () {
     const key = process.env.NEXT_PUBLIC_API_KEY
-    const [query,SetQuery] = useState<string>('dark')
+    const [query,SetQuery] = useState<string>('city')
     const [data,SetData] = useState<any>()
     const [idData,SetidData] = useState()
     const [page,SetPage] = useState<number>(1)
