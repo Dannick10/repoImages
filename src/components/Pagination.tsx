@@ -24,7 +24,7 @@ const Pagination = ({
     for (let i = actualPage; i <= endPage; i++) {
       list.push(
         <button
-          className={`join-item btn ${page == i ? "btn-active" : ""}`}
+          className={`join-item btn ${Number(page) == i ? "btn-disabled" : ""}`}
           onClick={changePage}
         >
           {i}
@@ -41,7 +41,7 @@ const Pagination = ({
       whileInView={{ opacity: 1, y: 0 }}
     >
       <motion.button
-        className={`join-item btn ${page == 1 ? "btn-disabled" : ""}`}
+        className={`join-item btn ${Number(page) == 1 ? "btn-disabled" : ""}`}
         onClick={NextandPreviusPage}
         whileHover={{fontSize: 4}}
       >
@@ -49,7 +49,7 @@ const Pagination = ({
       </motion.button>
       {generatePage()}
       <motion.button
-        className={`join-item btn  ${page === totalPage ? "btn-disabled" : ""}`}
+        className={`join-item btn  ${Number(page) === totalPage ? "btn-disabled" : ""}`}
         onClick={NextandPreviusPage}
       >
         Avançar
