@@ -34,10 +34,10 @@ const Modal = ({ idData, closed, loadingID, idmodal }: modalProps) => {
   return (
     <AnimatePresence>
   <motion.article
-    className={`h-full w-full fixed top-0 left-0 flex items-center justify-center overflow-hidden backdrop-blur-sm`}
+    className={`h-full w-full fixed top-0 left-0 flex items-center justify-center overflow-hidden backdrop-blur-sm z-30`}
     onClick={closed}
     initial={{ opacity: 0, scale: -1 }}
-    transition={{ duration: .5, delay: 0.1, type: 'spring' }}
+    transition={{ duration: .5, delay: 0.2, type: 'spring' }}
     whileInView={{ opacity: 1, scale: 1 }}
     layoutId={idmodal}
   >

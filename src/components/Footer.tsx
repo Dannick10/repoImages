@@ -1,7 +1,7 @@
 import React from "react";
 import {motion} from 'framer-motion'
 import { DevIcon, GithubIcon, LinkedinIcon } from "@/icon/icon";
-
+import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="footer flex justify-between bg-neutral text-neutral-content items-center p-4">
@@ -17,10 +17,14 @@ const Footer = () => {
           <li className="hover:brightness-125 cursor-pointer"
       
           >
-            <LinkedinIcon />
+            <Link href={'https://github.com/Dannick10'} target="_blank">
+                <LinkedinIcon />
+            </Link>
           </li>
           <li className="hover:brightness-125 cursor-pointer">
+          <Link href={'https://www.linkedin.com/in/futurodevdaniel/'} target={'_blank'}>
             <GithubIcon />
+          </Link>
           </li>
         </ul>
       </nav>

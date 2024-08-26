@@ -6,7 +6,6 @@ import ImageComponets from "@/components/ImageComponents/ImageComponets";
 import Title from "@/components/Title";
 import InputComponent from "@/components/InputComponent";
 import Pagination from "@/components/Pagination";
-import Skeleton from "@/components/skeleton";
 import Modal from "@/components/modal";
 
 export default function Home() {
@@ -36,12 +35,12 @@ export default function Home() {
     scroll(0, 0);
   };
 
-  const changePage = (e: MouseEvent<HTMLButtonElement>) => {
+  const changePage = (e: any) => {
     SetPage(e.target.innerHTML);
     scroll(0, 0);
   };
 
-  const NextandPreviusPage = (e: MouseEvent<HTMLButtonElement>) => {
+  const NextandPreviusPage = (e: any) => {
     console.log(e.target);
     scroll(0, 0);
     if (e.target.innerHTML.toLowerCase() == "voltar") {
@@ -51,7 +50,7 @@ export default function Home() {
     }
   };
 
-  const handleGetId = (e) => {
+  const handleGetId = (e: any) => {
     const id = e.currentTarget.dataset["id"];
     FetchDataID(id);
     SetidModal(id);
@@ -67,8 +66,7 @@ export default function Home() {
   console.log(data);
   return (
     <main
-      className="min-h-screen w-full p-24 gap-2 flex flex-col"
-      data-theme="lofi"
+      className="min-h-screen w-full px-4 py-6 gap-2 flex flex-col"
     >
       <InputComponent
         query={query}
