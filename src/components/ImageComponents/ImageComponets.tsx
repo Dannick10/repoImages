@@ -75,7 +75,7 @@ const ImageComponets = ({ data, loading, handleGetId }: Props) => {
                 <div className="text-base-300 text-nowrap w-full text-ellipsis overflow-clip">
                   <p>{photo.alt}</p>
                 </div>
-                <motion.div className="text-center flex justify-center text-4xl text-base-300 bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-transparent w-full absolute right-0 bottom-0 h-14 cursor-pointer"
+                <motion.div className="text-center flex justify-center text-4xl text-base-300 bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-transparent w-full absolute right-0 bottom-0 h-full cursor-pointer"
                 layoutId={photo.id.toString()}
                 id={photo.id.toString()}
                 initial={{opacity: 0, y: -20}}
