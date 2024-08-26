@@ -49,7 +49,7 @@ const Pagination = ({
       </motion.button>
       {generatePage()}
       <motion.button
-        className={`join-item btn  ${page == totalPage ? "btn-disabled" : ""}`}
+        className={`join-item btn  ${page === totalPage ? "btn-disabled" : ""}`}
         onClick={NextandPreviusPage}
       >
         Avançar

@@ -42,13 +42,16 @@ export default function Home() {
 
   const NextandPreviusPage = (e: any) => {
     scroll(0, 0);
-    if (e.target.innerHTML.toLowerCase() == "voltar") {
-      SetPage(Math.floor(page - 1));
+    const buttonText = e.currentTarget.textContent?.toLowerCase();
+  
+    if (buttonText === "voltar") {
+      SetPage(Number(page) - 1);
     } else {
-      SetPage(Math.floor(page + 1));
+      SetPage(Number(page) + 1);
     }
   };
 
+  
   const handleGetId = (e: any) => {
     const id = e.currentTarget.dataset["id"];
     FetchDataID(id);
