@@ -6,7 +6,7 @@ const Header = () => {
     <header className="navbar bg-neutral text-neutral-content flex justify-between items-center"
     
     >
-    <p className="badge badge-outline rounded-lg" >Yk_Image</p>
+    <p className="badge badge-outline rounded-lg" >repo-images</p>
   </header>
   )
 }
