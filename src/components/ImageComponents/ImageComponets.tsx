@@ -51,6 +51,7 @@ const ImageComponets = ({ data, loading, handleGetId }: Props) => {
                 height={400}
                 alt={photo.alt}
                 className="object-cover w-full"
+                priority
               />
               <aside
                 className="card-body w-full"
