@@ -1,4 +1,3 @@
-import { pages } from "next/dist/build/templates/app-page";
 import React, { MouseEvent } from "react";
 import { motion } from "framer-motion";
 
