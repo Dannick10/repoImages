@@ -8,6 +8,7 @@ import InputComponent from "@/components/InputComponent";
 import Pagination from "@/components/Pagination";
 import Modal from "@/components/modal";
 import { useRouter } from "next/navigation";
+import { Suspense } from "react";
 
 export default function Home() {
   const {
@@ -70,6 +71,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen w-full px-4 py-6 gap-2 flex flex-col">
+       <Suspense fallback={<div className="loading-spinner loading-lg">Loading...</div>}>
+
+      
       <InputComponent
         query={query}
         onchange={(e) => SetQuery(e.target.value)}
@@ -105,6 +109,7 @@ export default function Home() {
           idmodal={idModal}
         />
       )}
+       </Suspense>
     </main>
   );
 }
