@@ -4,19 +4,23 @@ import { motion } from "framer-motion";
 
 type Props = {
   page: number;
-  totalPage: number;
+  totalItems: number;
+  quantitforPage: number
   changePage: (e: MouseEvent<HTMLButtonElement>) => void;
   NextandPreviusPage: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Pagination = ({
   page,
-  totalPage,
+  totalItems,
+  quantitforPage,
   changePage,
   NextandPreviusPage,
 }: Props) => {
-  const actualPage = Math.max(page - 2, 1);
-  const endPage = Math.min(page + 2, totalPage);
+
+  const totalPage = Math.ceil(totalItems / quantitforPage)
+  const actualPage = Math.max(page - 3, 1);
+  const endPage = Math.min(page + 3, totalPage);
 
   const generatePage = () => {
     const list = [];

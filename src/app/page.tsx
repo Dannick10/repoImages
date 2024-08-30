@@ -65,7 +65,7 @@ export default function Home() {
     SetidData(undefined);
   };
 
-
+  console.log(data)
   return (
     <main
       className="min-h-screen w-full px-4 py-6 gap-2 flex flex-col"
@@ -89,7 +89,8 @@ export default function Home() {
           <nav className="flex justify-center items-center my-6">
             <Pagination
               page={data.page}
-              totalPage={data.total_results}
+              totalItems={data.total_results}
+              quantitforPage={data.per_page}
               changePage={changePage}
               NextandPreviusPage={NextandPreviusPage}
             />
