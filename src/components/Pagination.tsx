@@ -18,13 +18,13 @@ const Pagination = ({
 }: Props) => {
 
   const totalPage = Math.ceil(totalItems / quantitforPage)
-  const actualPage = Math.max(page - 3, 1);
+  const startPage = Math.max(page - 3, 1);
   const endPage = Math.min(page + 3, totalPage);
 
   const generatePage = () => {
     const list = [];
 
-    for (let i = actualPage; i <= endPage; i++) {
+    for (let i = startPage; i <= endPage; i++) {
       list.push(
         <button
           className={`join-item btn ${Number(page) == i ? "btn-disabled" : ""}`}

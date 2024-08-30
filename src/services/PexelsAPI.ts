@@ -6,21 +6,15 @@ import { useEffect, useState } from "react";
 
 export default function usePexelsAPI() {
   const searchParams = useSearchParams();
+  const pageParam = searchParams.get("page");
   const key = process.env.NEXT_PUBLIC_API_KEY;
-  const [query, SetQuery] = useState<string>("city");
   const [data, SetData] = useState<any>();
   const [idData, SetidData] = useState();
-  const [page, SetPage] = useState<number>(1);
+  const [query, SetQuery] = useState<string>( searchParams.get("query") || 'city');
+  const [page, SetPage] = useState<number>(pageParam ? parseInt(pageParam) : 1);
   const [loading, Setloading] = useState<boolean>(false);
   const [loadingID, SetloadingID] = useState<boolean>(false);
 
-  useEffect(() => {
-    const queryParams = searchParams.get("query");
-    const pageParam = searchParams.get("page");
-
-    SetQuery(queryParams ?? "city");
-    SetPage(pageParam ? parseInt(pageParam) : 1);
-  }, [searchParams]);
 
   const FetchData = async () => {
     Setloading(true);
