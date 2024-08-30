@@ -1,12 +1,13 @@
 "use client";
-import React, { MouseEvent, useState } from "react";
+import React, { useState } from "react";
 import usePexelsAPI from "@/services/PexelsAPI";
-import { ButtonHTMLAttributes, useEffect } from "react";
+import { useEffect } from "react";
 import ImageComponets from "@/components/ImageComponents/ImageComponets";
 import Title from "@/components/Title";
 import InputComponent from "@/components/InputComponent";
 import Pagination from "@/components/Pagination";
 import Modal from "@/components/modal";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const {
@@ -24,15 +25,18 @@ export default function Home() {
   } = usePexelsAPI();
   const [modal, SetModal] = useState<boolean>(false);
   const [idModal, SetidModal] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
     FetchData();
+    router.push(`?query=${encodeURIComponent(query)}&page=${page}`);
   }, [page]);
 
   const handleSearch = () => {
     FetchData();
     SetPage(1);
     scroll(0, 0);
+    router.push(`?query=${encodeURIComponent(query)}&page=${page}`);
   };
 
   const changePage = (e: any) => {
@@ -43,7 +47,7 @@ export default function Home() {
   const NextandPreviusPage = (e: any) => {
     scroll(0, 0);
     const buttonText = e.currentTarget.textContent?.toLowerCase();
-  
+
     if (buttonText === "voltar") {
       SetPage(Number(page) - 1);
     } else {
@@ -51,7 +55,6 @@ export default function Home() {
     }
   };
 
-  
   const handleGetId = (e: any) => {
     const id = e.currentTarget.dataset["id"];
     FetchDataID(id);
@@ -65,11 +68,8 @@ export default function Home() {
     SetidData(undefined);
   };
 
-  console.log(data)
   return (
-    <main
-      className="min-h-screen w-full px-4 py-6 gap-2 flex flex-col"
-    >
+    <main className="min-h-screen w-full px-4 py-6 gap-2 flex flex-col">
       <InputComponent
         query={query}
         onchange={(e) => SetQuery(e.target.value)}
